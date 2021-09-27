@@ -17,6 +17,7 @@ let timerID = null;
 startBtn.addEventListener('click', onStart);
 
 function onStart() {
+  stopBtn.classList.add 
   const min = 0;
   const max = colors.length-1;
     const randomIntegerFromInterval = (min, max) => {
@@ -26,9 +27,12 @@ function onStart() {
    document.body.style.backgroundColor = `${colors[randomIntegerFromInterval(min, max)]}`;
   }, 1000);
   startBtn.removeEventListener('click', onStart);
+  startBtn.classList.add("btn-noActive");
 }
+
 stopBtn.addEventListener('click', onStop);
 function onStop() {
   clearInterval(timerID);
   startBtn.addEventListener('click', onStart);
+  startBtn.classList.remove("btn-noActive");
 };
